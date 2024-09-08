@@ -117,12 +117,45 @@ function checkPali(str) {
 // console.log(checkPali(strq1)); //true
 
 //! -----------------------
+//! Factorial Number
 //! -----------------------
+// n!=n×(n−1)!
+
+function num1(num) {
+  if (num === 0 || num === 1) {
+    return 1; // Base case: factorial(0) or factorial(1) is 1
+  } else {
+    return num * num1(num - 1); // Recursive call
+  }
+}
+// console.log(num1(5)); // 120
 
 //! -----------------------
+//! Sum of Array Elements
 //! -----------------------
 
+const A100 = [10, 10];
+
+function arsum(arr) {
+  let sum = 0;
+  for (i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+  return sum;
+}
+console.log(arsum(A100)); // 20
+console.log(A100.length); //2
+
+function arsum2(arr) {
+  return arr.reduce((accumulator, currentValue) => {
+    accumulator = accumulator + currentValue;
+    return accumulator;
+  }, 0);
+}
+console.log(arsum2(A100)); // 20
+
 //! -----------------------
+
 //! -----------------------
 
 //! -----------------------
