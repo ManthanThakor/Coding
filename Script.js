@@ -143,8 +143,10 @@ function arsum(arr) {
   }
   return sum;
 }
-console.log(arsum(A100)); // 20
-console.log(A100.length); //2
+// console.log(arsum(A100)); // 20
+// console.log(A100.length); //2
+
+//! second method
 
 function arsum2(arr) {
   return arr.reduce((accumulator, currentValue) => {
@@ -152,20 +154,71 @@ function arsum2(arr) {
     return accumulator;
   }, 0);
 }
-console.log(arsum2(A100)); // 20
+// console.log(arsum2(A100)); // 20
 
 //! -----------------------
-
-//! -----------------------
-
-//! -----------------------
+//! FIND THE MAXIMUM AND SECOND MAXIMUM FROM ARRAY
 //! -----------------------
 
 //! -----------------------
+//! Count the Occurrence of Each Character in a String
 //! -----------------------
 
+function charCount1(str) {
+  let charCount = {};
+  for (let char of str) {
+    if (charCount[char]) {
+      charCount[char]++;
+    } else {
+      charCount[char] = 1;
+    }
+  }
+  return charCount;
+}
+// console.log(charCount1("hello"));// { h: 1, e: 1, l: 2, o: 1 }
+
 //! -----------------------
+//! Find Longest Word in a String
 //! -----------------------
+
+function findLongestWord(str) {
+  const splitstr = str.split(" ");
+  console.log(splitstr);
+
+  let max = "";
+  for (let i = 0; i < splitstr.length; i++) {
+    if (splitstr[i].length > max.length) {
+      max = splitstr[i];
+    }
+  }
+  return max.length; // jumped if we remove.length
+}
+// console.log(findLongestWord("The quick brown fox jumped over the lazy dog")); // 6
+
+//! -----------------------
+//! HOW TO FIND DUPLICATE ELEMENTS IN ARRAY
+//! -----------------------
+const arr = [1, 1, 2, 2, 3, 4, 5, 67, 7, 6, 6];
+function duplicate(arr) {
+  elementCount = {};
+  duplicateArray = [];
+
+  for (let el of arr) {
+    if (elementCount[el]) {
+      elementCount[el]++;
+    } else {
+      elementCount[el] = 1;
+    }
+  }
+
+  for (let keys in elementCount) {
+    if (elementCount[keys] > 1) {
+      duplicateArray.push(keys);
+    }
+  }
+  return duplicateArray;
+}
+console.log(duplicate(arr)); // [ '1', '2', '6' ]
 
 //! -----------------------
 //! -----------------------
