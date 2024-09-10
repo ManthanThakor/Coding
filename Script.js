@@ -347,20 +347,42 @@ function secondLarger(arr) {
 }
 // console.log(`second largest number from array is:`, secondLarger(ap)); //second largest number from array is: 6
 
+//? ----------------method 2 --------------
+
+const a212 = [1, 2, 4, 5, 7, 3, 2, 6];
+
+const largestArray2 = (arr) => {
+  firstLargestValue = Math.max(...arr);
+  index = arr.indexOf(firstLargestValue);
+  arr.splice(index, 1);
+  secondLargestValue = Math.max(...arr);
+  return secondLargestValue;
+};
+
+// console.log(largestArray2(a212)); // 6
+
 //! -----------------------
 //! Different Between '==' and '==='
 //! -----------------------
 
+var x = 7;
+var y = "7";
+// console.log(x == y); // true
+// console.log(x === y); //  false
+
 //! -----------------------
 //! ascendingArr and descendingArr
 //! -----------------------
+
+//? ----------ascending--------------------
+
 const arr1111 = [5, 1, 9, 3, 7, 2];
 
 const ascendingArr = arr1111.slice().sort((a, b) => a - b); // `slice()` creates a copy of the array
 
 // console.log(ascendingArr);// Output: [1, 2, 3, 5, 7, 9]
 
-//? ------------------------------
+//? ----------Descending--------------------
 
 const arr223 = [5, 1, 9, 3, 7, 2];
 
@@ -368,7 +390,7 @@ const descendingArr = arr223.slice().sort((a, b) => b - a); // `slice()` creates
 
 // console.log(descendingArr); // Output: [9, 7, 5, 3, 2, 1]
 
-//? ------------------------------
+//? ------------sort array string in ascending ALPHABETIC------------------
 
 const strArr = ["Banana", "apple", "cherry"];
 
@@ -376,9 +398,9 @@ const sortedStrArr = strArr.sort((a, b) => {
   return a.slice().toLocaleLowerCase().localeCompare(b.toLocaleLowerCase());
 });
 
-console.log(sortedStrArr); // [ 'apple', 'Banana', 'cherry' ]
+// console.log(sortedStrArr); // [ 'apple', 'Banana', 'cherry' ]
 
-//? ------------------------------
+//? -----------sort array string in DESCENDING ALPHABETIC -------------------
 
 const strArr2 = ["Banana", "apple", "cherry"];
 
@@ -386,9 +408,9 @@ const sortedStrArr2 = strArr2.sort((a, b) => {
   return b.slice().toLocaleLowerCase().localeCompare(a.toLocaleLowerCase());
 });
 
-console.log(sortedStrArr2); // [ 'apple', 'Banana', 'cherry' ]
+// console.log(sortedStrArr2); // [ 'cherry', 'Banana', 'apple' ]
 
-//? ------------------------------
+//? ---------------Sort Age in Array of object--------------
 
 const person2 = [
   {
@@ -417,4 +439,92 @@ const sortedAge = person2.sort((a, b) => {
  ] */
 
 //! -----------------------
+//! Difference Between Filter And Find Method
 //! -----------------------
+
+//? Purpose: filter is used to find all elements in an array that meet a specified condition.
+//? filter Result Length	Can return an array of any length, including an empty  array
+
+//* Purpose: find is used to find the first element in an array that meets a specified condition.
+//* find Returns a single element (or undefined )
+
+const obj123 = [
+  {
+    name: "jone",
+    age: 20,
+  },
+  {
+    name: "jio",
+    age: 21,
+  },
+  {
+    name: "abe",
+    age: 28,
+  },
+  {
+    name: "tuee",
+    age: 30,
+  },
+];
+
+//! --------------Filter----------------
+
+function fil(obj) {
+  const fil = obj.filter((item) => {
+    if (item.age > 25) {
+      return item;
+    }
+  });
+  return fil;
+}
+// console.log(fil(obj123)); // [ { name: 'abe', age: 28 }, { name: 'tuee', age:
+
+//! --------------Find----------------
+
+function find(obj) {
+  let find = obj.find((item) => {
+    return item.age > 25;
+  });
+  return find;
+}
+// console.log(find(obj123)); { name: 'abe', age: 28 }
+
+//! -----------------------
+//! How to find a missing elements in given array 1 to 10
+//! -----------------------
+
+const arrnum = [1, 2, 3, 4, 5, 6, 8, 9, 10];
+
+function missing(arr) {
+  const missingValue = [];
+  let minVal = Math.min(...arr);
+  let maxVal = Math.max(...arr);
+  for (let i = minVal; i <= maxVal; i++) {
+    if (arr.indexOf(i) < 0) {
+      missingValue.push(i);
+    }
+    // else {
+    //   missingValue.push(i);
+    // }
+  }
+  return missingValue;
+}
+// console.log(missing(arrnum)); // [ 7 ]
+
+//! -----------------------
+//! How to find a even or odd number
+//! -----------------------
+
+const ar505 = [1, 2, 42, 3, 34, 32, 435, 345, 345];
+
+const findoddeven = (arr) => {
+  const even = arr.filter((item) => {
+    return item % 2 == 0;
+  });
+  const odd = arr.filter((item) => {
+    return item % 2 !== 0;
+  });
+  return `even number: ${even} , odd number: ${odd} `;
+};
+
+// console.log(findoddeven(ar505)); // even number: 2,42,34,32 , odd number: 1,3,435,345,345
