@@ -183,16 +183,20 @@ function charCount1(str) {
 
 function findLongestWord(str) {
   const splitstr = str.split(" ");
-  console.log(splitstr);
+  // console.log(splitstr);
 
-  let max = "";
+  let max = 0; // Use max to track the length of the longest word
+  let longestWord = ""; // Store the longest word itself
   for (let i = 0; i < splitstr.length; i++) {
-    if (splitstr[i].length > max.length) {
-      max = splitstr[i];
+    if (splitstr[i].length > max) {
+      max = splitstr[i].length;
+      longestWord = splitstr[i]; // Optional : Store the word with the maximum length
     }
   }
-  return max.length; // jumped if we remove.length
+  // console.log("Longest Word:", longestWord);
+  return max; // Return the length of the longest word
 }
+
 // console.log(findLongestWord("The quick brown fox jumped over the lazy dog")); // 6
 
 //! -----------------------
@@ -371,74 +375,6 @@ var y = "7";
 // console.log(x === y); //  false
 
 //! -----------------------
-//! ascendingArr and descendingArr
-//! -----------------------
-
-//? ----------ascending--------------------
-
-const arr1111 = [5, 1, 9, 3, 7, 2];
-
-const ascendingArr = arr1111.slice().sort((a, b) => a - b); // `slice()` creates a copy of the array
-
-// console.log(ascendingArr);// Output: [1, 2, 3, 5, 7, 9]
-
-//? ----------Descending--------------------
-
-const arr223 = [5, 1, 9, 3, 7, 2];
-
-const descendingArr = arr223.slice().sort((a, b) => b - a); // `slice()` creates a copy of the array
-
-// console.log(descendingArr); // Output: [9, 7, 5, 3, 2, 1]
-
-//? ------------sort array string in ascending ALPHABETIC------------------
-
-const strArr = ["Banana", "apple", "cherry"];
-
-const sortedStrArr = strArr.sort((a, b) => {
-  return a.slice().toLocaleLowerCase().localeCompare(b.toLocaleLowerCase());
-});
-
-// console.log(sortedStrArr); // [ 'apple', 'Banana', 'cherry' ]
-
-//? -----------sort array string in DESCENDING ALPHABETIC -------------------
-
-const strArr2 = ["Banana", "apple", "cherry"];
-
-const sortedStrArr2 = strArr2.sort((a, b) => {
-  return b.slice().toLocaleLowerCase().localeCompare(a.toLocaleLowerCase());
-});
-
-// console.log(sortedStrArr2); // [ 'cherry', 'Banana', 'apple' ]
-
-//? ---------------Sort Age in Array of object--------------
-
-const person2 = [
-  {
-    name: "abc",
-    age: 30,
-  },
-  {
-    name: "xyz",
-    age: 16,
-  },
-  {
-    name: "def",
-    age: 32,
-  },
-];
-
-const sortedAge = person2.sort((a, b) => {
-  return a.age - b.age;
-});
-
-/* console.log(sortedAge); //
-   output : [
-  { name: 'xyz', age: 16 },
-  { name: 'abc', age: 30 },
-  { name: 'def', age: 32 }
- ] */
-
-//! -----------------------
 //! Difference Between Filter And Find Method
 //! -----------------------
 
@@ -528,3 +464,391 @@ const findoddeven = (arr) => {
 };
 
 // console.log(findoddeven(ar505)); // even number: 2,42,34,32 , odd number: 1,3,435,345,345
+
+//! -----------------------
+//! Prime Number or Not
+//! -----------------------
+
+// A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. In other words, a prime number is only divisible by 1 and itself.
+
+function isPrime(num) {
+  if (num <= 1) {
+    return false; // Numbers less than or equal to 1 are not prime
+  }
+
+  // Check divisibility by all numbers from 2 up to num - 1
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false; // If divisible by any number, it's not prime
+    }
+  }
+
+  return true; // If no divisors were found, the number is prime
+}
+
+// // Example usage:
+// console.log(isPrime(2)); // Output: true (2 is a prime number)
+// console.log(isPrime(15)); // Output: false (15 is not a prime number)
+
+//! -----------------------
+//! Output Qun.
+//! -----------------------
+
+// console.log(+true);
+// The unary plus (+) operator attempts to convert its operand to a number. true is a boolean, and when converted to a number, it becomes 1. Output: 1
+//! -----------------------
+// console.log(!"xyz");
+// The logical NOT operator (!) negates a value. Non-empty strings are truthy, so "xyz" is truthy. The negation of a truthy value is false.
+// Output: false
+//! -----------------------
+let a = 10;
+let b = new Number(10);
+let c = 10;
+// console.log(a === b);
+// a is a primitive number, b is a Number object (created using new Number(10)), and c is a primitive number. The strict equality operator (===) checks both type and value. a === b returns false because a is a primitive number, and b is an object of type Number. Output: false
+//! -----------------------
+// console.log("1" == 1);
+// console.log("1" == 1); The == operator checks for equality but allows type coercion. The string "1" is coerced to the number 1, so the comparison becomes 1 == 1, which is true. Output: true
+//! -----------------------
+// console.log("1" === 1);
+// The === operator checks for strict equality (no type coercion).
+// Since "1" is a string and 1 is a number, the result is false.
+// Output: false
+//! -----------------------
+// console.log(true === "");
+// true is a boolean, and "" is an empty string.
+// Since their types differ (boolean and string), the comparison is false.
+// Output: false
+//! -----------------------
+// console.log(NaN == NaN);
+// NaN is a special value in JavaScript that stands for "Not a Number".
+// NaN is not equal to anything, including itself.
+// Output: false
+//! -----------------------
+// console.log(NaN === NaN);
+// Same as above but with strict equality (===). NaN is not equal to NaN even with strict equality.
+// Output: false
+//! -----------------------
+// console.log("4" + 2 + 6);
+// The + operator concatenates when one of the operands is a string.
+// "4" + 2 results in "42", then "42" + 6 results in "426".
+// Output: "426"
+//! -----------------------
+// console.log("4" + 2 * 6);
+// The multiplication (*) has higher precedence than addition.
+// 2 * 6 is evaluated first, resulting in 12, and then "4" + 12 results in "412" (string concatenation).
+// Output: "412"
+//! -----------------------
+// console.log("5" - 2 + 6);
+// The - operator attempts to convert both operands to numbers.
+// "5" - 2 results in 5 - 2, which is 3. Then, 3 + 6 results in 9.
+// Output: 9
+//! -----------------------
+// console.log("5" - "2" + 6);
+// Similar to the previous case. "5" - "2" is 5 - 2, which is 3. Then, 3 + 6 results in 9.
+// Output: 9
+//! -----------------------
+// console.log("4" * 2 + 6);
+// The * operator attempts to convert the operands to numbers.
+// "4" * 2 results in 8. Then, 8 + 6 results in 14.
+// Output: 14
+//! -----------------------
+// console.log(typeof NaN);
+// The typeof operator returns the type of the operand.
+// NaN is of type number in JavaScript, even though it stands for "Not a Number".
+// Output: "number"
+//! -----------------------
+const arr1a = ["one", "two"];
+const str = "hello";
+
+const ress = arr.includes("one");
+const onthervar = arr.includes("onetwo");
+const newvar = str.includes("ll");
+
+// console.log(ress);      // Output: true
+// console.log(onthervar); // Output: false
+// console.log(newvar);    // Output: true
+
+// arr1a.includes("one"):
+
+// Checks if the string "one" exists in the array arr1a.
+// Since "one" is present, it returns true.
+// Output: true
+// arr1a.includes("onetwo"):
+
+// Checks if the string "onetwo" exists in the array arr1a.
+// "onetwo" is not present in the array, so it returns false.
+// Output: false
+// str.includes("ll"):
+
+// Checks if the string "ll" exists in the string str.
+// "ll" is present in "hello", so it returns true.
+// Output: true
+//! -----------------------
+
+//! -----------------------
+//! Flat the array
+//! -----------------------
+
+//? ----------Method -1 -------------
+
+const arrrr = [
+  [1, 2, 8],
+  [4, 3],
+  [5, 6],
+];
+
+const flatarr = arrrr.flat();
+// console.log(flatarr);  // output: [1, 2, 8, 4,3, 5, 6]
+
+//? ----------Method -2  -------------
+
+const arrrr2 = [
+  [1, 2, 8],
+  [4, 3],
+  [5, 6],
+];
+let flatarr2 = [];
+for (let i = 0; i < arrrr2.length; i++) {
+  for (let j = 0; j < arrrr2[i].length; j++) {
+    flatarr2.push(arrrr2[i][j]);
+  }
+}
+// console.log(flatarr2);  // output: [1, 2, 8, 4,3, 5, 6]
+
+//! -----------------------
+//! ascendingArr and descendingArr
+//! -----------------------
+
+//? ----------ascending--------------------
+
+const arr1111 = [5, 1, 9, 3, 7, 2];
+
+const ascendingArr = arr1111.slice().sort((a, b) => a - b); // `slice()` creates a copy of the array
+
+// console.log(ascendingArr);// Output: [1, 2, 3, 5, 7, 9]
+
+//? ----------Descending--------------------
+
+const arr223 = [5, 1, 9, 3, 7, 2];
+
+const descendingArr = arr223.slice().sort((a, b) => b - a); // `slice()` creates a copy of the array
+
+// console.log(descendingArr); // Output: [9, 7, 5, 3, 2, 1]
+
+//? ------------sort array string in ascending ALPHABETIC------------------
+
+const strArr = ["Banana", "apple", "cherry"];
+
+const sortedStrArr = strArr.sort((a, b) => {
+  return a.slice().toLocaleLowerCase().localeCompare(b.toLocaleLowerCase());
+});
+
+// console.log(sortedStrArr); // [ 'apple', 'Banana', 'cherry' ]
+
+//? -----------sort array string in DESCENDING ALPHABETIC -------------------
+
+const strArr2 = ["Banana", "apple", "cherry"];
+
+const sortedStrArr2 = strArr2.sort((a, b) => {
+  return b.slice().toLocaleLowerCase().localeCompare(a.toLocaleLowerCase());
+});
+
+// console.log(sortedStrArr2); // [ 'cherry', 'Banana', 'apple' ]
+
+//? ---------------Sort Age in Array of object--------------
+
+const person2 = [
+  {
+    name: "abc",
+    age: 30,
+  },
+  {
+    name: "xyz",
+    age: 16,
+  },
+  {
+    name: "def",
+    age: 32,
+  },
+];
+
+const sortedAge = person2.sort((a, b) => {
+  return a.age - b.age;
+});
+
+/* console.log(sortedAge); //
+   output : [
+  { name: 'xyz', age: 16 },
+  { name: 'abc', age: 30 },
+  { name: 'def', age: 32 }
+ ] */
+//! -----------------------
+//? ---------------Sort WITHOUT INBUILT METHOD Array --------------
+//! -----------------------
+//! -----------------------
+//? ---------------bubbleSort --------------
+//! -----------------------
+// for theory
+// https://youtu.be/p5Hacf4MeBY?si=BqErH3XPeqDNTSfn
+
+let ary = [1, 2, 4, 66, 63, 20, 90, 33];
+
+function bubbleSort(arr) {
+  let len = arr.length;
+  for (let i = 0; i < len; i++) {
+    for (let j = 0; j < len - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        // Swap if the element is greater than the next element
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+}
+
+// console.log(bubbleSort(ary)); // [1,  2,  4, 20, 33 , 63, 66, 90]
+
+//! -----------------------
+//? ---------------bubbleSort Descending --------------
+//! -----------------------
+
+function bubbleSortDescending(arr) {
+  let len = arr.length;
+  for (let i = 0; i < len; i++) {
+    for (let j = 0; j < len - i - 1; j++) {
+      if (arr[j] < arr[j + 1]) {
+        // Change condition for descending
+        // Swap if the current element is less than the next element
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+}
+// console.log(bubbleSortDescending(ary)); // [90, 66, 63, 33, 20, 4, 2, 1]
+
+//! -----------------------
+//? ---------------bubbleSort Ascending string --------------
+//! -----------------------
+
+let strArr23 = ["abc", "cde", "wd"];
+function bubbleSortStringsAscending(arr) {
+  let len = arr.length;
+  for (let i = 0; i < len; i++) {
+    for (let j = 0; j < len - i - 1; j++) {
+      // Compare strings using localeCompare
+      if (arr[j].localeCompare(arr[j + 1]) > 0) {
+        // for ascending
+        // Swap if the current string is greater than the next string
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+}
+
+// console.log(bubbleSortStringsAscending(strArr23)); // ["abc", "cde", "wd"]
+
+//! -----------------------
+//? ---------------bubbleSort Descending string --------------
+//! -----------------------
+
+let strArr232 = ["abc", "cde", "wd"];
+
+function bubbleSortStringsDescending(arr) {
+  let len = arr.length;
+  for (let i = 0; i < len; i++) {
+    for (let j = 0; j < len - i - 1; j++) {
+      // Compare strings using localeCompare
+      if (arr[j].localeCompare(arr[j + 1]) < 0) {
+        // for descending
+        // Swap if the current string is less than the next string
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+}
+
+// console.log(bubbleSortStringsDescending(strArr232)); // ["wd", "cde", "abc"]
+
+//! -----------------------
+//? ---------------Selection Ascending --------------
+//! -----------------------
+
+function ssa(arr) {
+  let len = arr.length;
+  for (let i = 0; i < len; i++) {
+    // console.log(arr[i]);
+    let minIndex = i; // Assume the first element of the unsorted part is the smallest
+
+    for (let j = i + 1; j < len; j++) {
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j;
+      }
+    }
+    if (minIndex !== i) {
+      let temp = arr[i];
+      arr[i] = arr[minIndex];
+      arr[minIndex] = temp;
+    }
+  }
+  return arr;
+}
+
+let ary1222 = [1, 2, 4, 66, 63, 20, 90, 33];
+// console.log(ssa(ary1222));
+
+//! -----------------------
+//? ---------------merge Ascending --------------
+//! -----------------------
+
+let mergeSortArr = [2, 3, 55, 32, 44, 1, 4, 200];
+
+function mergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr; // Base case: a single element array is already sorted
+  }
+
+  // Split the array into two halves
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+
+  // Merge the sorted halves
+  return merge(left, right);
+}
+
+function merge(left, right) {
+  let result = [];
+  let i = 0;
+  let j = 0;
+
+  // Merge two sorted arrays
+  while (i < left.length && j < right.length) {
+    if (left[i] <= right[j]) {
+      // Use <= to handle equal values
+      result.push(left[i]);
+      i++;
+    } else {
+      result.push(right[j]);
+      j++;
+    }
+  }
+
+  // Append remaining elements from both arrays
+  result = result.concat(left.slice(i)).concat(right.slice(j));
+
+  return result;
+}
+
+// console.log(mergeSort(mergeSortArr)); // [1,  2,  3,   4,32, 44, 55, 200]
