@@ -448,7 +448,7 @@ function missing(arr) {
 // console.log(missing(arrnum)); // [ 7 ]
 
 //! -----------------------
-//! How to find a even or odd number
+//! How to find a even or odd number in array
 //! -----------------------
 
 const ar505 = [1, 2, 42, 3, 34, 32, 435, 345, 345];
@@ -464,6 +464,20 @@ const findoddeven = (arr) => {
 };
 
 // console.log(findoddeven(ar505)); // even number: 2,42,34,32 , odd number: 1,3,435,345,345
+
+//! -----------------------
+//! How to find a even or odd number
+//! -----------------------
+
+const numbe = 20;
+
+if (numbe % 2 === 0) {
+  // console.log(`${numbe} is even.`);
+} else {
+  // console.log(`${numbe} is odd.`);
+}
+
+// Output: "20 is even."
 
 //! -----------------------
 //! Prime Number or Not
@@ -851,4 +865,136 @@ function merge(left, right) {
   return result;
 }
 
-// console.log(mergeSort(mergeSortArr)); // [1,  2,  3,   4,32, 44, 55, 200]
+// console.log(mergeSort(mergeSortArr)); // [1,  2,  3, 4,32, 44, 55, 200]
+
+//! ----------------------------------------------
+//? --------------- Find Vowels --------------
+//! ----------------------------------------------
+
+function findVowels(str) {
+  let vowel = "aeiouAEIOU";
+  let result = "";
+  let count = 0;
+  for (let char of str) {
+    if (vowel.includes(char)) {
+      result = result + char;
+      count++;
+    }
+  }
+  return { result, count };
+}
+
+// Example usage
+const inputString = "Hello World!";
+const vowels = findVowels(inputString);
+// console.log(vowels); // Output: "eoo"
+
+//? ------------------ Method 2 ---------------
+
+function findVowels2(str) {
+  const vowels = "aeiouAEIOU";
+  return str.split("").filter((char) => vowels.includes(char));
+}
+
+// Example usage
+const inputString2 = "Hello World!";
+const vowels2 = findVowels2(inputString2);
+// console.log(vowels2); // Output: ["e", "o", "o"]
+
+//! ----------------------------------------------
+//? ----Swapping two variables using a third variable---
+//! ----------------------------------------------
+
+let aaaa = 5;
+let bbbb = 10;
+
+let temp = aaaa;
+aaaa = bbbb;
+bbbb = temp;
+
+// console.log(aaaa, bbbb); // 10 5
+
+//! ----------------------------------------------
+//? ----Swapping two variables without using a third variable---
+//! ----------------------------------------------
+
+// Using Destructuring (ES6):
+// This is a simple and modern way to swap two variables in JavaScript.
+
+let aaA = 5;
+let bbB = 10;
+
+[aaA, bbB] = [bbB, aaA]; // Swap using array destructuring
+
+// console.log(`Value of aaA = ${aaA} and Value of bbB = ${bbB}`); // Value of aaA = 10 and Value of bbB = 5
+
+//! ----------------------------------------------
+//? ----Join the two array and sort it---
+//! ----------------------------------------------
+
+const array1 = [1, 10, 3];
+const array2 = [4, 5, 6];
+
+function joinandsort(arr1, arr2) {
+  // let combineArr = arr1.concat(arr2); //! Method 1 to join array
+  // let combineArr = [...arr1, ...arr2]; //! method 2 to join array Using the Spread Operator
+
+  // now using for loop join two array
+
+  for (let i = 0; i < arr2.length; i++) {
+    // console.log(i);
+    arr1.push(arr2[i]);
+  }
+
+  //? Now sort array using sort method
+
+  // arr1.sort((a, b) => {
+  //   return a - b;
+  // });
+
+  //?  Bubble Sort Algorithm
+  let len = arr1.length;
+
+  for (let i = 0; i < len; i++) {
+    for (j = 0; j < len - i - 1; j++) {
+      if (arr1[j] > arr1[j + 1]) {
+        let temp = arr1[j];
+        arr1[j] = arr1[j + 1];
+        arr1[j + 1] = temp;
+      }
+    }
+  }
+
+  return arr1;
+}
+
+// console.log(joinandsort(array1, array2));
+
+//! ----------------------------------------------
+//? ----find factors of an integer---
+//! ----------------------------------------------
+// A factor of an integer is a number that divides the integer exactly without leaving a remainder. In other words, if you have an integer 𝑛, a factor is any integer 𝑓 such that n divided by f leaves no remainder (i.e., 𝑛%𝑓=0).
+// Examples:
+// Factors of 12: 1, 2, 3, 4, 6, 12
+// Explanation: 12 can be divided evenly by 1, 2, 3, 4, 6, and 12.
+
+const number1 = 28;
+
+function findfactor(num) {
+  if (num <= 0) {
+    return "Input must be a positive integer.";
+  }
+  const factor = [];
+
+  for (let i = 1; i < num; i++) {
+    if (num % i === 0) {
+      factor.push(i);
+    }
+  }
+  return factor;
+}
+// console.log(findfactor(number1)); // [ 1, 2, 4, 7, 14 ]
+
+//! ----------------------------------------------
+//? ----Make calculator in Js---
+//! ----------------------------------------------
