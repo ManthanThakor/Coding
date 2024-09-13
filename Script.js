@@ -157,10 +157,6 @@ function arsum2(arr) {
 // console.log(arsum2(A100)); // 20
 
 //! -----------------------
-//! FIND THE MAXIMUM AND SECOND MAXIMUM FROM ARRAY
-//! -----------------------
-
-//! -----------------------
 //! Count the Occurrence of Each Character in a String
 //! -----------------------
 
@@ -176,6 +172,27 @@ function charCount1(str) {
   return charCount;
 }
 // console.log(charCount1("hello"));// { h: 1, e: 1, l: 2, o: 1 }
+
+//! ------------------------------------------------------------------
+//? ---- find the number of occurrences of a character in a string ---
+//! ------------------------------------------------------------------
+
+const str2000 = "hello world";
+const letter2 = "l";
+function findocurrences(str, char) {
+  let count = 0;
+
+  for (i = 0; i < str.length; i++) {
+    if (str[i] === char) {
+      count = count + 1;
+    }
+  }
+  return count;
+}
+
+// console.log(
+//   `The character ${letter2} appears ${findocurrences(str2000, letter2)} times.`
+// ); // The character l appears 3 times.
 
 //! -----------------------
 //! Find Longest Word in a String
@@ -996,5 +1013,489 @@ function findfactor(num) {
 // console.log(findfactor(number1)); // [ 1, 2, 4, 7, 14 ]
 
 //! ----------------------------------------------
-//? ----Make calculator in Js---
+//? ----To compare if two arrays are equal in JavaScript---
 //! ----------------------------------------------
+
+const array11 = [1, 2, 3];
+const array22 = [1, 2, 3];
+const array33 = [1, 2, 4];
+
+function compareArr(arr1, arr2) {
+  // Check if the lengths are different
+
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  // Compare each element in both arrays
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
+    }
+  }
+  return true; // Arrays are equal
+}
+// console.log(compareArr(array11, array22)); // true
+
+//! ----------------------------------------------
+//? ----find the intersection of two array---
+//! ----------------------------------------------
+
+const array111 = [1, 2, 3, 10, 11];
+const array222 = [1, 2, 3, 4, 5, 6];
+
+function findintersection(arr1, arr2) {
+  const intersec = arr1.filter((value) => {
+    return arr2.includes(value);
+  });
+  return intersec;
+}
+
+// console.log(findintersection(array111, array222)); // [ 1, 2, 3 ]
+
+//? ----------------- method 2 -------------------
+
+function findIntersection(arr1, arr2) {
+  let intersection = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr2.includes(arr1[i])) {
+      intersection.push(arr1[i]);
+    }
+  }
+
+  return intersection;
+}
+
+// Example usage
+const arry1 = [1, 2, 3, 4, 5];
+const arry2 = [4, 5, 6, 7, 8];
+
+// console.log(findIntersection(arry1, arry2)); // Output: [4, 5]
+
+//! ----------------------------------------------
+//? ---- find the union of two array ---
+//! ----------------------------------------------
+
+const aru = [1, 3, 5, 3, 3, 2, 10];
+const aru2 = [2, 2, 4, 5, 5, 6, 7, 8, 11, 12, 9];
+
+function union(arr1, arr2) {
+  let unionarr = [...arr1, ...arr2];
+  let unionarr2 = [...new Set(unionarr)];
+  return unionarr2;
+}
+
+// console.log(union(aru, aru2)); //[1, 3, 5, 2, 10, 4, 6, 7, 8, 11, 12, 9]
+
+//? ----------------- method 2 -------------------
+
+const aru3 = [1, 3, 5, 3, 3, 2, 10];
+const aru4 = [2, 2, 4, 5, 5, 6, 7, 8, 11, 12, 9];
+
+function union2(arr1, arr2) {
+  let unionarr = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    // console.log(i);
+    if (!unionarr.includes(arr1[i])) {
+      unionarr.push(arr1[i]);
+    }
+  }
+
+  for (let i = 0; i < arr2.length; i++) {
+    if (!unionarr.includes(arr2[i])) {
+      unionarr.push(arr2[i]);
+    }
+  }
+  return unionarr;
+}
+// console.log(union2(aru3, aru4));[1, 3, 5, 2, 10, 4, 6, 7, 8, 11, 12, 9]
+
+//! ----------------------------------------------
+//? ---- convert kilometers to miles ---
+//! ----------------------------------------------
+
+// To convert kilometers to miles, you can use the following conversion formula:
+// Miles=Kilometers×0.621371
+
+const kilometers = 10;
+
+function kilotomile(km) {
+  const factor = 0.621;
+  const miles = km * factor;
+  return miles;
+}
+
+// console.log(kilotomile(kilometers)); // 6.21
+
+//! ----------------------------------------------
+//? ---- convert the first latter to uppercase in string ---
+//! ----------------------------------------------
+
+const firstrup = "hello world, how are you?";
+
+function convertfirstlattertoup(str) {
+  const firstlattercapital = str.split(" ");
+  const newarr = firstlattercapital.map((value) => {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  });
+  return newarr.join(" ");
+}
+
+// console.log(convertfirstlattertoup(firstrup)); // Hello World, How Are You?
+
+//! ----------------------------------------------
+//? ---- Write a function that loops through the properties of an object and prints both the property names and values. ---
+//! ----------------------------------------------
+
+const obj12 = { a: 1, b: 2, c: 3 };
+
+function printObjectProperties(obj) {
+  let result = "";
+  for (let key in obj) {
+    result += `${key}: ${obj[key]}\n`; // Accumulate key-value pairs as a string
+  }
+  return result;
+}
+
+// console.log(printObjectProperties(obj12)); // a: 1 b: 2 c: 3
+
+//! ----------------------------------------------
+//? ---- Write a function that calculates the number of properties (keys) in an object. ---
+//! ----------------------------------------------
+
+const obj = { a: 1, b: 2, c: 3 };
+
+function objectLength(obj) {
+  return Object.keys(obj).length;
+}
+
+// console.log(objectLength(obj)); // Output: 3
+
+//! ----------------------------------------------
+//? ---- Write a function to merge two objects obj1 and obj2 into a single object. If a key exists in both objects, the value from obj2 should be used. ---
+//! ---------------------------------------------
+
+const obj1 = { a: 1, b: 2, c: 3 };
+const obj2 = { b: 4, d: 5 };
+
+function mergeObjects(obj1, obj2) {
+  return { ...obj1, ...obj2 };
+}
+
+// console.log(mergeObjects(obj1, obj2));
+// Output: { a: 1, b: 4, c: 3, d: 5 }
+
+//! ----------------------------------------------
+//? ---- Write a function that finds the key in an object with the highest numeric value. ---
+//! ---------------------------------------------
+
+const obj212 = { a: 1, b: 5, c: 3 };
+
+function findMaxKey(obj) {
+  let maxKey = "";
+  let maxValue = -Infinity;
+  for (let key in obj) {
+    if (obj[key] > maxValue) {
+      maxValue = obj[key];
+      maxKey = key;
+    }
+  }
+  return maxKey;
+}
+
+// console.log(findMaxKey(obj212)); // Output: 'b'
+
+//! ----------------------------------------------
+//? ---- Write a function that takes an object and returns the sum of all its values (assume the values are numbers)---
+//! ---------------------------------------------
+const obj21212 = { a: 10, b: 20, c: 30 };
+
+function sumValues(obj) {
+  let sum = 0;
+  for (let key in obj) {
+    sum += obj[key];
+  }
+  return sum;
+}
+
+// console.log(sumValues(obj21212)); // Output: 60
+
+//! ----------------------------------------------
+//? ---- Write a function that filters the properties of an object based on a condition (e.g., values greater than 2). ---
+//! ---------------------------------------------
+
+const ob = { a: 1, b: 3, c: 5 };
+
+function filterObject(obj) {
+  let result = {};
+  for (let key in obj) {
+    if (obj[key] > 2) {
+      result[key] = obj[key];
+    }
+  }
+  return result;
+}
+
+// console.log(filterObject(ob));
+// Output: { b: 3, c: 5 }
+
+//! ----------------------------------------------
+//? ---- fibonacci sequence ---
+//! ---------------------------------------------
+
+const num10 = 10;
+
+function fibonacci(num) {
+  let result = [0, 1];
+  for (let i = 2; i < num; i++) {
+    result[i] = result[i - 1] + result[i - 2];
+  }
+  return result;
+}
+
+// console.log(fibonacci(num10)); // [ 0, 1,  1,  2,  3, 5, 8, 13, 21, 34 ]
+
+//! ----------------don't do this example ------------------------------
+//? ---- pattern --- don't do this
+//! -------------------don't do this example--------------------------
+
+function printRightAngleTriangle(n) {
+  for (let i = 1; i <= n; i++) {
+    console.log("*".repeat(i));
+  }
+}
+
+// printRightAngleTriangle(5); //
+// *
+// **
+// ***
+// ****
+// *****
+
+//! ----------------------------------------------
+//? ---- printLeftAngleTriangle ---
+//! ---------------------------------------------
+
+function printLeftAngleTriangle(n) {
+  for (let i = 1; i <= n; i++) {
+    let stars = "";
+    for (let j = 1; j <= i; j++) {
+      stars += "*"; // Add stars
+    }
+    console.log(stars); // Print each row
+  }
+}
+
+// printLeftAngleTriangle(5);
+// *
+// **
+// ***
+// ****
+// *****
+
+//! ----------------------------------------------
+//? ---- square ---
+//! ---------------------------------------------
+
+function printSquare(n) {
+  for (let i = 1; i <= n; i++) {
+    let line = "";
+
+    // Add stars
+    for (let j = 1; j <= n; j++) {
+      line += "*"; // line = line + j ; for number pattern
+    }
+
+    console.log(line);
+  }
+}
+
+// printSquare(5);
+// *****
+// *****
+// *****
+// *****
+// *****
+
+//! ----------------------------------------------
+//? ---- printRightAlignedTriangle ---
+//! ---------------------------------------------
+
+function printRightAlignedTriangle(n) {
+  for (let i = 1; i <= n; i++) {
+    let line = "";
+    // Add spaces to right-align
+    for (let j = 1; j <= n - i; j++) {
+      line = line + " ";
+    }
+    for (let k = 1; k <= i; k++) {
+      line += "*"; // line = line + k ; for number pattern
+    }
+
+    console.log(line);
+  }
+}
+
+// printRightAlignedTriangle(5);
+//     *
+//    **
+//   ***
+//  ****
+// *****
+
+//! ---------------------------------------------
+//? ----------- Equilateral Triangle ------------
+//! ---------------------------------------------
+
+function printEquilateralTriangle(n) {
+  for (let i = 1; i <= n; i++) {
+    let line = "";
+
+    // Add spaces
+    for (let j = 1; j <= n - i; j++) {
+      line = line + " ";
+    }
+
+    // Add stars
+    for (let k = 1; k <= 2 * i - 1; k++) {
+      line = line + "*"; // line = line + k ; for number pattern
+    }
+    console.log(line);
+  }
+}
+
+// printEquilateralTriangle(5);
+//     *
+//    ***
+//   *****
+//  *******
+// *********
+
+//! ---------------------------------------------
+//? -----------  Diamond ------------
+//! ---------------------------------------------
+
+function Diamond(n) {
+  for (let i = 1; i <= n; i++) {
+    let line = "";
+
+    // Add spaces
+    for (let j = 1; j <= n - i; j++) {
+      line = line + " ";
+    }
+
+    // Add stars
+    for (let k = 1; k <= 2 * i - 1; k++) {
+      line = line + "*"; // line = line + k ; for number pattern
+    }
+    console.log(line);
+  }
+
+  //! for bottom part
+
+  for (let i = n - 1; i >= 1; i--) {
+    let line = "";
+
+    // Add spaces
+    for (let j = 1; j <= n - i; j++) {
+      line = line + " ";
+    }
+
+    // Add stars
+    for (let k = 1; k <= 2 * i - 1; k++) {
+      line = line + "*"; // line = line + k ; for number pattern
+    }
+    console.log(line);
+  }
+}
+
+// Diamond(5);
+//     *
+//    ***
+//   *****
+//  *******
+// *********
+//  *******
+//   *****
+//    ***
+//     *
+
+//! ---------------------------------------------
+//? -----------  Hourglass ------------
+//! ---------------------------------------------
+
+function Hourglass(n) {
+  //! Up part
+  for (let i = n; i >= 1; i--) {
+    let line = "";
+
+    // Add spaces
+    for (let j = 1; j <= n - i; j++) {
+      line = line + " ";
+    }
+    // Add star
+    for (let k = 1; k <= 2 * i - 1; k++) {
+      line = line + "*"; // line = line + k ; for number pattern
+    }
+    console.log(line);
+  }
+
+  //!bottom  part
+
+  for (let i = 2; i <= n; i++) {
+    let line = "";
+    // Add spaces
+
+    for (let j = 1; j <= n - i; j++) {
+      line = line + " ";
+    }
+    for (let k = 1; k <= 2 * i - 1; k++) {
+      line = line + "*"; //   line = line + k ; for number pattern
+    }
+    console.log(line);
+  }
+}
+
+// Hourglass(5);
+// *********
+//  *******
+//   *****
+//    ***
+//     *
+//    ***
+//   *****
+//  *******
+// *********
+
+//! ---------------------------------------------
+//? -----------  table   ------------
+//! ---------------------------------------------
+
+const table = 10;
+
+function tab(num) {
+  let result = [];
+  for (let i = 0; i <= 10; i++) {
+    // console.log(`${num} x ${i} = ${num * i}`);
+    result.push(`${num} x ${i} = ${num * i}`);
+  }
+
+  return result;
+}
+
+// console.log(tab(table));
+// [
+//   '10 x 0 = 0',
+//   '10 x 1 = 10',
+//   '10 x 2 = 20',
+//   '10 x 3 = 30',
+//   '10 x 4 = 40',
+//   '10 x 5 = 50',
+//   '10 x 6 = 60',
+//   '10 x 7 = 70',
+//   '10 x 8 = 80',
+//   '10 x 9 = 90',
+//   '10 x 10 = 100'
+// ]
