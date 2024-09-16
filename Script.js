@@ -1255,7 +1255,7 @@ function fibonacci(num) {
   return result;
 }
 
-// console.log(fibonacci(num10)); // [ 0, 1,  1,  2,  3, 5, 8, 13, 21, 34 ]
+console.log(fibonacci(num10)); // [ 0, 1,  1,  2,  3, 5, 8, 13, 21, 34 ]
 
 //! ----------------don't do this example ------------------------------
 //? ---- pattern --- don't do this
@@ -1499,4 +1499,89 @@ function tab(num) {
 //   '10 x 9 = 90',
 //   '10 x 10 = 100'
 // ]
-h;
+
+//! ---------------------------------------------
+//? -----------  Football team and score is given. find the wining team with highest goal  ------------
+//! ---------------------------------------------
+
+const teams = [
+  { team: "Team A", score: 2 },
+  { team: "Team B", score: 5 },
+  { team: "Team C", score: 3 },
+];
+
+function findWinningTeam(teams) {
+  if (teams.length === 0) return null;
+  winingTeam = teams[0];
+  for (let i = 0; i < teams.length; i++) {
+    if (teams[i].score > winingTeam.score) {
+      winingTeam = teams[i];
+    }
+  }
+  return winingTeam;
+}
+
+const winner = findWinningTeam(teams);
+// console.log(`The winning team is ${winner.team} with ${winner.score} goals.`); // The winning team is Team B with 5 goals.
+
+//? ----------------- method 2 -------------------
+
+const teams2 = [
+  { team: "Team A", score: 2 },
+  { team: "Team B", score: 1 },
+  { team: "Team C", score: 3 },
+];
+
+function findWinningTeam2(teams) {
+  return teams.reduce((max, team) => (team.score > max.score ? team : max));
+}
+
+const winner2 = findWinningTeam2(teams2);
+// console.log(`The winning team is ${winner2.team} with ${winner2.score} goals.`); // The winning team is Team C with 3 goals.
+
+//! ---------------------------------------------
+//? -----------  find names with exactly 2 vowels in an array  ------------
+//! ---------------------------------------------
+
+const arrvow = ["aanu", "nopo", "jadu"];
+
+function findvowlesexectly2(arr) {
+  const vowel = "AEIOUaeiou";
+  const namesWithTwoVowels = [];
+  for (let i = 0; i < arr.length; i++) {
+    let vowelCount = 0;
+
+    for (let j = 0; j < arr[i].length; j++) {
+      if (vowel.includes(arr[i][j].toLowerCase())) {
+        vowelCount += 1;
+      }
+    }
+    if (vowelCount === 2) {
+      namesWithTwoVowels.push(arr[i]);
+    }
+  }
+  return namesWithTwoVowels;
+}
+
+// console.log(findvowlesexectly2(arrvow)); // [ 'nopo', 'jadu' ]
+
+//? ----------------- method 2 -------------------
+
+const arrvow2 = ["aanu", "nopo", "jadu"];
+
+function findvowlesexectly2andmethod2(arr) {
+  const vowels = "aeiou";
+
+  // Helper function to count vowels in a string
+  const checkVowelCount = (str) => {
+    const vowelcount = str
+      .split("")
+      .filter((char) => vowels.includes(char.toLowerCase())).length;
+    return vowelcount === 2;
+  };
+
+  // Filter array based on strings having exactly 2 vowels
+  return arr.filter(checkVowelCount);
+}
+
+// console.log(findvowlesexectly2andmethod2(arrvow2)); // [ 'nopo', 'jadu' ]
