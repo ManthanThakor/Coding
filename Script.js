@@ -1585,3 +1585,77 @@ function findvowlesexectly2andmethod2(arr) {
 }
 
 // console.log(findvowlesexectly2andmethod2(arrvow2)); // [ 'nopo', 'jadu' ]
+
+//! ---------------------------------------------
+//? -----------  FizzBuzz Problem  ------------
+//! ---------------------------------------------
+
+// Write a function fizzBuzz(n) that prints the numbers from 1 to n. But for multiples of three, print "Fizz" instead of the number and for the multiples of five, print "Buzz". For numbers that are multiples of both three and five, print "FizzBuzz".
+
+const nummm = 15;
+
+function FizzBuzz(n) {
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log("fizz");
+    } else if (i % 5 === 0) {
+      console.log("buzz");
+    } else {
+      console.log(i);
+    }
+  }
+}
+
+//! FizzBuzz(15);
+// 1
+// 2
+// fizz
+// 4
+// buzz
+// fizz
+// 7
+// 8
+// fizz
+// buzz
+// 11
+// fizz
+// 13
+// 14
+// FizzBuzz
+
+//! ---------------------------------------------
+//? ----------- Move 0 to end of the list  ------------
+//! ---------------------------------------------
+
+const arr1211 = [0, 3, 1, 0, 4, 6, 0, 3];
+function moveZerosToEnd(arr) {
+  const result = [];
+  let zeroCount = 0;
+
+  // Loop through the original array
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      result.push(arr[i]); // Add non-zero elements to result
+    } else {
+      zeroCount++;
+    }
+  }
+
+  // Fill the result array with zeros
+  for (let i = 0; i < zeroCount; i++) {
+    result.push(0);
+  }
+
+  // Copy result back to the original array
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = result[i]; // Update the original array
+  }
+
+  return arr;
+}
+
+// Example usage:
+const movfun = moveZerosToEnd(arr1211);
+// console.log(movfun); //! Output: [3, 1, 4, 6, 3, 0, 0, 0]
