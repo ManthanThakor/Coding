@@ -3,46 +3,6 @@
 
 // console.log("hello");
 
-// -------------------
-
-// let a, b, c;
-// a = 5;
-// b = 4;
-// c = a + b;
-// console.log(c);
-
-// -----------------------
-
-//! check the number between range 1 to 5 and 5 to 7
-
-function checkNum(num) {
-  const range = [1, 5];
-  const range2 = [5, 7];
-  if (
-    (num > range[0] && num < range[1]) ||
-    (num > range2[0] && num < range2[1])
-  )
-    return `the number ${num} is in between the range`;
-  else {
-    return null;
-  }
-}
-
-// console.log(checkNum(2)); //output: the number 2 is in between the range
-
-//! -----------------------
-//! Get the value between two number
-//! -----------------------
-
-function getValue(start, end) {
-  const ans = [];
-  for (let i = start + 1; i < end; i++) {
-    ans.push(i);
-  }
-  return ans;
-}
-// console.log(getValue(2, 5)); //output:  [ 3, 4 ]
-
 //! -----------------------
 //! Reverse The string
 //! -----------------------
